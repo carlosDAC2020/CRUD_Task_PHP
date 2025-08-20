@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestor de Tareas</h1>
+        
+        <!-- Formulario para crear tareas -->
+        <form id="task-form">
+            <input type="text" id="title" placeholder="Título de la tarea" required>
+            <textarea id="description" placeholder="Descripción"></textarea>
+            <input type="date" id="due_date">
+            <button type="submit">Añadir Tarea</button>
+        </form>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="pendiente">Pendientes</button>
+            <button class="filter-btn" data-filter="completada">Completadas</button>
+        </div>
+
+        <!-- Lista de tareas (se llenará con AJAX) -->
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Incluir jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Tu script de la aplicación -->
+    <script src="js/app.js"></script>
+</body>
+</html>

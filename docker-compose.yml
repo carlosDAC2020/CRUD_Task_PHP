@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # Servicio para la base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'rootpassword' # Contraseña de superusuario
+      MYSQL_DATABASE: 'gestor_tareas_db' # Nombre de la base de datos a crear
+      MYSQL_USER: 'user'                 # Usuario para la aplicación
+      MYSQL_PASSWORD: 'password'         # Contraseña para el usuario
+    ports:
+      - "3306:3306" 
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Servicio para el servidor web Apache con PHP
+  web:
+    image: php:8.2-apache
+    container_name: php_web
+    restart: always
+    ports:
+      - "8080:80" # Accederás a la aplicación en http://localhost:8080
+    volumes:
+      # Monta el frontend en la raíz del servidor web 
+      - ./frontend:/var/www/html/
+      # Monta el backend DENTRO de una carpeta llamada 'backend' en el servidor
+      - ./backend:/var/www/html/backend/
+    depends_on:
+      - db # El servidor web no se iniciará hasta que la base de datos esté lista
+    command: >
+      sh -c "
+        docker-php-ext-install pdo pdo_mysql &&
+        apache2-foreground
+      "
+
+volumes:
+  mysql_data:
