@@ -32,8 +32,8 @@ Para ejecutar este proyecto en tu máquina local, solo necesitas tener Docker y 
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone https://github.com/tu-usuario/tu-repositorio.git
-    cd nombre-del-repositorio
+    git clone https://github.com/carlosDAC2020/CRUD_Task_PHP.git
+    cd CRUD_Task_PHP.git
     ```
 
 2.  **Levanta los contenedores:**
