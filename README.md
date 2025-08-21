@@ -45,7 +45,7 @@ Para ejecutar este proyecto en tu máquina local, solo necesitas tener Docker y 
 
 3.  **¡Listo! Accede a la aplicación:**
     Abre tu navegador web y visita:
-    [**http://localhost:8080**](http://localhost:8080)
+    [**http://localhost:8080**](http://localhost:80)
 
     La base de datos y la tabla de tareas se crearán automáticamente la primera vez que se inicie el servicio.
 

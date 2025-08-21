@@ -22,7 +22,7 @@ services:
     container_name: php_web
     restart: always
     ports:
-      - "8080:80" # Accederás a la aplicación en http://localhost:8080
+      - "80:80" # Accederás a la aplicación en http://localhost:80
     volumes:
       # Monta el frontend en la raíz del servidor web 
       - ./frontend:/var/www/html/
